@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'ponto_turisticos',
+    'eventos',
     'comentarios',
     'avaliacoes',
     'localizacao',
-    'eventos'
 ]
 
 MIDDLEWARE = [
