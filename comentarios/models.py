@@ -11,4 +11,4 @@ class Comentario(models.Model):
     aprovado = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return self.usuario.username
+        return self.usuario.first_name if self.usuario.first_name != '' else self.usuario.username
