@@ -8,6 +8,7 @@ class PontoTuristico(models.Model):
     aprovado = models.BooleanField(default=False)
     eventos = models.ManyToManyField(Evento)
     endereco = models.ForeignKey(Localizacao, on_delete=models.DO_NOTHING, null=True, blank=True)
+    foto = models.ImageField(upload_to='ponto_turisticos', null=True, blank=True)
 
 
     def __str__(self) -> str:

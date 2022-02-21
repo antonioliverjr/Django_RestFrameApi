@@ -5,3 +5,4 @@ from .serializers import EventoSerializer
 class EventoViewSet(ModelViewSet):
     queryset = Evento.objects.all()
     serializer_class = EventoSerializer
+    filterset_fields = ('nome', 'descricao')
