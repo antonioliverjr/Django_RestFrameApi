@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
-#from dj_database_url import parse as dburls
+from dj_database_url import parse as dburls
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,16 +84,9 @@ WSGI_APPLICATION = 'django_restframeapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-database = {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': config('DB_NAME'),
-    'USER': config('DB_USER'),
-    'PASSWORD': config('DB_PASS'),
-    'HOST': config('DB_HOST'),
-    'PORT': config('DB_PORT'),
-}
+database = f'sqlite:///{BASE_DIR}/db.sqlite3'
 
-DATABASES = {'default': config('DATABASE_URL', default=database),}
+DATABASES = {'default': config('DATABASE_URL', default=database, cast=dburls),}
 
 
 # Password validation
