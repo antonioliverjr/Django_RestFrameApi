@@ -2,7 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
+#from rest_framework.authentication import TokenAuthentication
 from ponto_turisticos.models  import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
@@ -10,7 +10,7 @@ class PontoTuristicoViewSet(ModelViewSet):
     serializer_class = PontoTuristicoSerializer
     filter_backends = (SearchFilter,)
     permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
+    #authentication_classes = (TokenAuthentication,)
     search_fields = ('nome', 'descricao')
 
     def get_queryset(self):

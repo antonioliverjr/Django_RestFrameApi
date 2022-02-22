@@ -9,6 +9,11 @@ mysqlclient = "*"
 djangorestframework = "*"
 pillow = "*"
 django-filter = "*"
+python-decouple = "*"
+dj-static = "*"
+dj-database-url = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
