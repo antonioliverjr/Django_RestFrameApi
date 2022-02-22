@@ -1,0 +1,39 @@
+Instalar Heroku CLI
+Logar no Heroku CLI
+
+instalar python-decouple para ler arquivo .env
+configurar variáveis no .env
+
+instalar dj-database-url para ler string de conexão do Heroku
+
+instalar whitenoise para configuração de arquivos static
+incluir no settings.py(
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    MIDDLEWARE_CLASSES = ('whitenoise.middleware.WhiteNoiseMiddleware')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+)
+
+instalar gunicorn e pyscopg2
+criar arquivo Procfile = "web: gunicorn projeto.wsgi --log-file -"
+criar arquivo runtime = python-3.8.12
+
+criar app via Heroku CLI (heroku apps:create)
+configurar ALLOWED_HOSTS no .env
+
+criar variáveis de ambiente via Heroku CLI (
+    heroku plugins:install heroku-config
+    heroku config:push -a
+)
+
+git push heroku <branch:main> --force
+
+if erro no debug == collectstatic 
+    heroku config:set DISABLE_COLLECTSTATIC=1
+    git push heroku <branch:main> --force
+    heroku python manage.py migrate
+    heroku run 'bower install --config.interactive=false;grunt prep;python manage.py collectstatic --noinput'
+    heroku config:unset DISABLE_COLLECTSTATIC
+    heroku run python manage.py collectstatic
+else
+    heroku python manage.py migrate
+
