@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = ('whitenoise.middleware.WhiteNoiseMiddleware')
+
 ROOT_URLCONF = 'django_restframeapi.urls'
 
 TEMPLATES = [
@@ -133,6 +135,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = (
     BASE_DIR / 'static'
 )
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_ROOT = 'imagens/'
