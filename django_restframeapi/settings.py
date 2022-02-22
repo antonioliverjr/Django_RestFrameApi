@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
-from dj_database_url import parse as dburls
+#from dj_database_url import parse as dburls
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,7 +93,7 @@ database = {
     'PORT': config('DB_PORT'),
 }
 
-DATABASES = {'default': config('DATABASE_URL', default=database, cast=dburls),}
+DATABASES = {'default': config('DATABASE_URL', default=database),}
 
 
 # Password validation
